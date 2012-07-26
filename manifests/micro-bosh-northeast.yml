@@ -1,0 +1,27 @@
+---
+name: micro-bosh-northeast
+
+logging:
+  level: DEBUG
+
+network:
+  type: dynamic
+
+resources:
+  cloud_properties:
+    instance_type: m1.small
+    availability_zone: ap-northeast-1a
+
+cloud:
+  plugin: aws
+  properties:
+    aws:
+      access_key_id: #INPUT_YOUR_ACCESS_KEY_ID
+      secret_access_key: #INPUT_YOUR_SECRET_ACCESS_KEY
+      default_key_name: hamakn_no_passphrase #INPUT_YOUR_DEFAULT_KEY_NAME
+      default_security_groups: ["default"]
+      ec2_private_key: ~/.ssh/id_rsa
+      ec2_endpoint: ec2.ap-northeast-1.amazonaws.com
+    stemcell:
+      kernel_id: aki-40992841 #ec2-public-images-ap-northeast-1/pv-grub-hd00_1.03-x86_64.gz.manifest.xml
+      disk: 16384
